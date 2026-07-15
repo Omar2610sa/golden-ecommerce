@@ -1,4 +1,3 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
 import imgTest from "@/assets/Categ Test.webp"
 import Image from "next/image";
