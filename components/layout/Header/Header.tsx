@@ -13,6 +13,7 @@ import ShoppingCart from "@/assets/icons/shopping-cart.png"
 import Bell from "@/assets/icons/notification-bing.png"
 import discount from "@/assets/icons/discount-shape.png"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import LoginButton from "./LoginButton";
 
 export default function Header() {
 
@@ -115,23 +116,27 @@ export default function Header() {
                     </div>
 
                     <div className="flex gap-5 justify-between items-center shrink-0">
-                        {/* <Link href="/" className="flex justify-center items-center relative size-6">
+                        <Link href="/" className="flex justify-center items-center relative size-7">
                             <Image src={ShoppingCart} alt="Heart" className="size-6" />
-                            <span className="absolute top-0 right-0">
+                            {/* <span className="absolute top-0 right-0">
                                 <span className="absolute h-3 w-3 rounded-full bg-primary opacity-75"></span>
                                 <span className="absolute h-3 w-3 rounded-full bg-primary"></span>
-                            </span>
+                            </span> */}
                         </Link>
-                        <Link href="/" className="flex justify-center items-center relative size-6">
+                        <Link href="/" className="flex justify-center items-center relative size-7">
                             <Image src={Heart} alt="Bell" className="size-6" />
-                            <span className="absolute top-0 right-0">
+                            {/* <span className="absolute -top-1 right-0">
                                 <span className="absolute h-3 w-3 rounded-full bg-primary opacity-75"></span>
                                 <span className="absolute h-3 w-3 rounded-full bg-primary"></span>
-                            </span>
-                        </Link> */}
-
-                        <MainButton text="سجل دخول" size={"xl"} />
-                        <MainButton text="إنشاء حساب جديد" size={"xl"} />
+                            </span> */}
+                        </Link>
+                        {/* <Link href="/login">
+                            <MainButton text="سجل دخول" size={"xl"} />
+                        </Link>
+                        <MainButton text="إنشاء حساب جديد" size={"xl"} /> */}
+                        <Link href="/login">
+                            <LoginButton />
+                        </Link>
                     </div>
 
                 </div>

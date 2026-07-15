@@ -11,11 +11,11 @@ import logo from "@/assets/footerLogo.png"
 import Image from "next/image"
 import Link from "next/link"
 
-interface SocialLink {
-    id: number
-    key: string
-    value: string
-}
+// interface SocialLink {
+//     id: number
+//     key: string
+//     value: string
+// }
 
 const iconMap: Record<string, any> = {
     facebook: <FaFacebook />,
