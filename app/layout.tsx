@@ -31,10 +31,10 @@ export default function RootLayout({
       dir="rtl"
       className={cn("h-full", "antialiased", URWNextArabic.variable)}
     >
-      <body  className={` ${URWNextArabic.variable} `}>
+      <body className={` ${URWNextArabic.variable} `}>
         <Header />
         {children}
-        </body>
+      </body>
     </html>
   );
 }
