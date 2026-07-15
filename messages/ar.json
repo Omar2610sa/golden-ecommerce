@@ -1,0 +1,22 @@
+{
+    "home": {
+        "title": "Welcome to Our E-commerce Store",
+        "description": "Discover a wide range of products at unbeatable prices."
+    },
+    "product": {
+        "addToCart": "Add to Cart",
+        "buyNow": "Buy Now"
+    },
+    "cart": {
+        "title": "Your Shopping Cart",
+        "checkout": "Proceed to Checkout"
+    },
+    "checkout": {
+        "title": "Checkout",
+        "paymentMethod": "Select Payment Method"
+    },
+    "common": {
+        "searchPlaceholder": "Search for products...",
+        "languageSelectorLabel": "Select Language"
+    }   
+}
