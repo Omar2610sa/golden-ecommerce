@@ -20,28 +20,32 @@ export default function Header() {
         {
             label: "العناية بالبشرة",
             items: [
+                "غسول البشرة",
+                "تونر",
+                "سيروم",
+                "ماسكات",
+                "مرطب",
                 "شامبو",
-                "شامبو",
-                "شامبو",
-                "شامبو",
+                "مقشرات",
+                "واقي شمس",
             ],
         },
         {
             label: "العناية الشخصية",
             items: [
-                "شامبو",
-                "شامبو",
-                "شامبو",
-                "شامبو",
+                "غسول الجسم",
+                "عناية باليدين والقدمين",
             ],
         },
         {
             label: "العناية بالشعر",
+
             items: [
                 "شامبو",
-                "شامبو",
-                "شامبو",
-                "شامبو",
+                "بلسم",
+                "ماسك للشعر",
+                "زيوت للشعر",
+                "سيروم للشعر",
             ],
         },
         {
@@ -106,7 +110,7 @@ export default function Header() {
                         <Search className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
                         <Input
                             placeholder="البحث عن منتج"
-                            className="px-9 py-5 placeholder:text-sm bg-gray-100 rounded-3xl"
+                            className="px-9 py-5 placeholder:text-sm bg-gray-100 rounded-3xl focus-visible:ring-primary/50  focus-visible:border-primary "
                         />
                     </div>
 
@@ -126,8 +130,8 @@ export default function Header() {
                             </span>
                         </Link> */}
 
-                        <MainButton  text="سجل دخول" size={"xl"}/>
-                        <MainButton  text="إنشاء حساب جديد" size={"xl"}/>
+                        <MainButton text="سجل دخول" size={"xl"} />
+                        <MainButton text="إنشاء حساب جديد" size={"xl"} />
                     </div>
 
                 </div>
@@ -150,7 +154,7 @@ export default function Header() {
                                 <DropdownMenuContent>
                                     <DropdownMenuGroup>
                                         {item.items.map((subItem) => (
-                                            <DropdownMenuItem key={subItem}>
+                                            <DropdownMenuItem key={subItem} className={`font-medium focus:bg-primary/15  `}>
                                                 {subItem}
                                             </DropdownMenuItem>
                                         ))}

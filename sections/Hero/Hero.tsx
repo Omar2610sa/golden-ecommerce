@@ -27,8 +27,8 @@ export default function Hero({ slider, shopNowText = "تسوق الآن" }: { sl
         <div className="relative ">
             <Carousel
                 dir="ltr"
-                // opts={{ loop: true }}
-                // plugins={[Autoplay({ delay: 2500, stopOnFocusIn: true })]}
+                opts={{ loop: true }}
+                plugins={[Autoplay({ delay: 2500, stopOnFocusIn: true })]}
                 setApi={setApi}
             >
                 <CarouselContent>

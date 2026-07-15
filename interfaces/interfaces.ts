@@ -21,6 +21,14 @@ export interface Banner {
     }
 }
 
+export interface CategoriesProps {
+    categories: {
+        image: {
+            url: string;
+        };
+        name: string;
+    }[];
+}
 
 export interface HomeData {
     sliders: Slider[]
@@ -28,6 +36,7 @@ export interface HomeData {
     recent_products: ProductCard[]
     best_selling_products: ProductCard[]
     flash_sale_products : ProductCard[]
+    categories : CategoriesProps[]
 }
 
 
