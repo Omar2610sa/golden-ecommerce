@@ -38,7 +38,6 @@ export async function serverApi<T = unknown>(
                 "Content-Type": "application/json",
                 ...(token ? { Authorization: `Bearer ${token}` } : {}),
                 ...(guestToken ? { "Guest-Token": guestToken } : {}),
-                ...(headers ? { "Accept-Language": Language } : {}),
             },
             ...(body ? { body: JSON.stringify(body) } : {}),
             ...(next ? { next } : {}),

@@ -1,290 +1,11 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import FadeIn from "@/components/Animations/Fadding";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import ShopCard from "@/components/ShopCard/ShopCard";
 import { ProductCard } from "@/interfaces/interfaces";
 
-export const testProducts: ProductCard[] = [
-    {
-        id: 1,
-        name: "سيروم فيتامين سي للعناية بالبشرة",
-        price: 150,
-        discount_percentage: 20,
-        price_after_discount: 120,
-        average_rate: 4.5,
-        reviews_count: 34,
-        image: {
-            id: 101,
-            url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/LiYrSbCSXqdBe9Vld6Wymkvrpif1k2PGosP6ihP6.webp",
-        },
-        is_wishlist: false,
-        lowest_price_variation: {
-            id: 1,
-            sku: "SKU-101",
-            price: 120,
-            stock: 12,
-            image: {
-                id: 201,
-                url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/7edfHJm9KE6ktQw5lVJ94XUFXrgt52hdgnn9SQ5p.webp",
-            },
-            gallery: [
-                {
-                    id: 301,
-                    url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/CboHBtqq70cEcXlSFxNWP7ZhClp7WgCfNlzlM6Bp.png",
-                },
-            ],
-        },
-        brand: "Nivea",
-        category: {
-            id: 1,
-            name: "العناية بالبشرة",
-        },
-    },
-    {
-        id: 1,
-        name: "سيروم فيتامين سي للعناية بالبشرة",
-        price: 150,
-        discount_percentage: 20,
-        price_after_discount: 120,
-        average_rate: 4.5,
-        reviews_count: 34,
-        image: {
-            id: 101,
-            url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/LiYrSbCSXqdBe9Vld6Wymkvrpif1k2PGosP6ihP6.webp",
-        },
-        is_wishlist: false,
-        lowest_price_variation: {
-            id: 1,
-            sku: "SKU-101",
-            price: 120,
-            stock: 12,
-            image: {
-                id: 201,
-                url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/7edfHJm9KE6ktQw5lVJ94XUFXrgt52hdgnn9SQ5p.webp",
-            },
-            gallery: [
-                {
-                    id: 301,
-                    url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/CboHBtqq70cEcXlSFxNWP7ZhClp7WgCfNlzlM6Bp.png",
-                },
-            ],
-        },
-        brand: "Nivea",
-        category: {
-            id: 1,
-            name: "العناية بالبشرة",
-        },
-    },
-    {
-        id: 1,
-        name: "سيروم فيتامين سي للعناية بالبشرة",
-        price: 150,
-        discount_percentage: 20,
-        price_after_discount: 120,
-        average_rate: 4.5,
-        reviews_count: 34,
-        image: {
-            id: 101,
-            url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/LiYrSbCSXqdBe9Vld6Wymkvrpif1k2PGosP6ihP6.webp",
-        },
-        is_wishlist: false,
-        lowest_price_variation: {
-            id: 1,
-            sku: "SKU-101",
-            price: 120,
-            stock: 12,
-            image: {
-                id: 201,
-                url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/7edfHJm9KE6ktQw5lVJ94XUFXrgt52hdgnn9SQ5p.webp",
-            },
-            gallery: [
-                {
-                    id: 301,
-                    url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/CboHBtqq70cEcXlSFxNWP7ZhClp7WgCfNlzlM6Bp.png",
-                },
-            ],
-        },
-        brand: "Nivea",
-        category: {
-            id: 1,
-            name: "العناية بالبشرة",
-        },
-    },
-    {
-        id: 1,
-        name: "سيروم فيتامين سي للعناية بالبشرة",
-        price: 150,
-        discount_percentage: 20,
-        price_after_discount: 120,
-        average_rate: 4.5,
-        reviews_count: 34,
-        image: {
-            id: 101,
-            url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/LiYrSbCSXqdBe9Vld6Wymkvrpif1k2PGosP6ihP6.webp",
-        },
-        is_wishlist: false,
-        lowest_price_variation: {
-            id: 1,
-            sku: "SKU-101",
-            price: 120,
-            stock: 12,
-            image: {
-                id: 201,
-                url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/7edfHJm9KE6ktQw5lVJ94XUFXrgt52hdgnn9SQ5p.webp",
-            },
-            gallery: [
-                {
-                    id: 301,
-                    url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/CboHBtqq70cEcXlSFxNWP7ZhClp7WgCfNlzlM6Bp.png",
-                },
-            ],
-        },
-        brand: "Nivea",
-        category: {
-            id: 1,
-            name: "العناية بالبشرة",
-        },
-    },
-    {
-        id: 1,
-        name: "سيروم فيتامين سي للعناية بالبشرة",
-        price: 150,
-        discount_percentage: 20,
-        price_after_discount: 120,
-        average_rate: 4.5,
-        reviews_count: 34,
-        image: {
-            id: 101,
-            url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/LiYrSbCSXqdBe9Vld6Wymkvrpif1k2PGosP6ihP6.webp",
-        },
-        is_wishlist: false,
-        lowest_price_variation: {
-            id: 1,
-            sku: "SKU-101",
-            price: 120,
-            stock: 12,
-            image: {
-                id: 201,
-                url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/7edfHJm9KE6ktQw5lVJ94XUFXrgt52hdgnn9SQ5p.webp",
-            },
-            gallery: [
-                {
-                    id: 301,
-                    url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/CboHBtqq70cEcXlSFxNWP7ZhClp7WgCfNlzlM6Bp.png",
-                },
-            ],
-        },
-        brand: "Nivea",
-        category: {
-            id: 1,
-            name: "العناية بالبشرة",
-        },
-    },
-    {
-        id: 1,
-        name: "سيروم فيتامين سي للعناية بالبشرة",
-        price: 150,
-        discount_percentage: 20,
-        price_after_discount: 120,
-        average_rate: 4.5,
-        reviews_count: 34,
-        image: {
-            id: 101,
-            url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/LiYrSbCSXqdBe9Vld6Wymkvrpif1k2PGosP6ihP6.webp",
-        },
-        is_wishlist: false,
-        lowest_price_variation: {
-            id: 1,
-            sku: "SKU-101",
-            price: 120,
-            stock: 12,
-            image: {
-                id: 201,
-                url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/7edfHJm9KE6ktQw5lVJ94XUFXrgt52hdgnn9SQ5p.webp",
-            },
-            gallery: [
-                {
-                    id: 301,
-                    url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/CboHBtqq70cEcXlSFxNWP7ZhClp7WgCfNlzlM6Bp.png",
-                },
-            ],
-        },
-        brand: "Nivea",
-        category: {
-            id: 1,
-            name: "العناية بالبشرة",
-        },
-    },
-    {
-        id: 1,
-        name: "سيروم فيتامين سي للعناية بالبشرة",
-        price: 150,
-        discount_percentage: 20,
-        price_after_discount: 120,
-        average_rate: 4.5,
-        reviews_count: 34,
-        image: {
-            id: 101,
-            url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/LiYrSbCSXqdBe9Vld6Wymkvrpif1k2PGosP6ihP6.webp",
-        },
-        is_wishlist: false,
-        lowest_price_variation: {
-            id: 1,
-            sku: "SKU-101",
-            price: 120,
-            stock: 12,
-            image: {
-                id: 201,
-                url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/7edfHJm9KE6ktQw5lVJ94XUFXrgt52hdgnn9SQ5p.webp",
-            },
-            gallery: [
-                {
-                    id: 301,
-                    url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/CboHBtqq70cEcXlSFxNWP7ZhClp7WgCfNlzlM6Bp.png",
-                },
-            ],
-        },
-        brand: "Nivea",
-        category: {
-            id: 1,
-            name: "العناية بالبشرة",
-        },
-    },
-    {
-        id: 1,
-        name: "سيروم فيتامين سي للعناية بالبشرة",
-        price: 150,
-        discount_percentage: 20,
-        price_after_discount: 120,
-        average_rate: 4.5,
-        reviews_count: 34,
-        image: {
-            id: 101,
-            url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/LiYrSbCSXqdBe9Vld6Wymkvrpif1k2PGosP6ihP6.webp",
-        },
-        is_wishlist: false,
-        lowest_price_variation: {
-            id: 1,
-            sku: "SKU-101",
-            price: 120,
-            stock: 12,
-            image: {
-                id: 201,
-                url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/7edfHJm9KE6ktQw5lVJ94XUFXrgt52hdgnn9SQ5p.webp",
-            },
-            gallery: [
-                {
-                    id: 301,
-                    url: "https://bayt-aljamal-dev.saber.aait-d.com/storage/uploads/Product/CboHBtqq70cEcXlSFxNWP7ZhClp7WgCfNlzlM6Bp.png",
-                },
-            ],
-        },
-        brand: "Nivea",
-        category: {
-            id: 1,
-            name: "العناية بالبشرة",
-        },
-    },
-]
 export default function ProductView({
     products,
     title,
@@ -294,14 +15,64 @@ export default function ProductView({
     title: string
     hidden?: boolean
 }) {
-    return (
-        <section className="container flex flex-col gap-3 ">
-            {/* Title */}
-            <SectionTitle title={title} hidden={hidden} />
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const [atStart, setAtStart] = useState(true);
+    const [atEnd, setAtEnd] = useState(false);
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 p-6">
+    const checkScrollPosition = () => {
+        const container = scrollRef.current;
+        if (!container) return;
+
+        const { scrollLeft, scrollWidth, clientWidth } = container;
+        const currentAbs = Math.abs(scrollLeft);
+        const maxScroll = scrollWidth - clientWidth;
+
+        setAtStart(currentAbs <= 0);
+        setAtEnd(currentAbs >= maxScroll - 5);
+    };
+
+    useEffect(() => {
+        checkScrollPosition(); 
+
+        const container = scrollRef.current;
+        if (!container) return;
+
+        container.addEventListener("scroll", checkScrollPosition);
+        return () => container.removeEventListener("scroll", checkScrollPosition);
+    }, [products]);
+
+    const scroll = (direction: "prev" | "next") => {
+        const container = scrollRef.current;
+        if (!container) return;
+
+        const amount = container.clientWidth * 0.8;
+        const offset = direction === "next" ? amount : -amount;
+
+        container.scrollBy({ left: offset, behavior: "smooth" });
+    };
+
+    return (
+        <section className="container flex flex-col gap-3">
+            <SectionTitle
+                title={title}
+                hidden={hidden}
+                onNext={() => scroll("next")}
+                onPrev={() => scroll("prev")}
+                nextDisabled={atStart}
+                prevDisabled={atEnd}
+            />
+
+            <div
+                ref={scrollRef}
+                className="flex gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory p-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            >
                 {products.map((product, index) => (
-                    <FadeIn key={product.id} direction="up" delay={index * 0.3}>
+                    <FadeIn
+                        key={product.id}
+                        direction="up"
+                        delay={index * 0.1}
+                        className="shrink-0 w-[45%] md:w-[23%] snap-start"
+                    >
                         <ShopCard product={product} />
                     </FadeIn>
                 ))}

@@ -11,7 +11,6 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import MainButton from "@/components/Reusable/MainButton";
 import Link from "next/link";
-import FadeIn from "@/components/Animations/Fadding";
 
 export default function Hero({ slider, shopNowText = "تسوق الآن" }: { slider: Slider[], shopNowText?: string }) {
     const [api, setApi] = useState<CarouselApi>();
@@ -37,7 +36,7 @@ export default function Hero({ slider, shopNowText = "تسوق الآن" }: { sl
                         {slider.map((slider, index) => (
                             <CarouselItem
                                 key={index}
-                                className="relative z-40 w-full  h-[calc(90vh-92px)] xl:h-[calc(70vh-92px)] overflow-hidden"                        >
+                                className="relative z-40 w-full  h-[calc(80vh-92px)] xl:h-[calc(70vh-92px)] overflow-hidden"                        >
                                 {/* Background image per slide */}
                                 <Image
                                     src={slider.image.url}

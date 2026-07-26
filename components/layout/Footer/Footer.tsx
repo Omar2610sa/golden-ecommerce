@@ -128,13 +128,9 @@ export default function Footer() {
 
             {/* Bottom bar */}
             <div className=" border-t border-white/10">
-                <div className="container py-6 text-sm text-white/70 flex justify-between items-center">
+                <div className="container py-10 text-sm text-white/70 flex justify-center items-center">
                     <span>
                         جميع الحقوق محفوظة © Golden Beauty House {new Date().getFullYear()}
-                    </span>
-
-                    <span>
-                        من تطوير وبرمجة <Link href="https://www.linkedin.com/in/omar-salam-064126257/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Omar Moataz</Link>
                     </span>
                 </div>
 

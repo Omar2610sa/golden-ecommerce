@@ -19,7 +19,7 @@ export default async function Home() {
       <ProductView title="الأكثر مبيعًا" products={home?.best_selling_products ?? []} />
       <Banner banner={{ id: 0, image: { url: banner.src } }} />
       <FlashProducts products={home?.flash_sale_products ?? []} title="عروض مميزة" />
-      <Banner banner={home?.banners[1]} />
+      <Banner banner={home?.banners[4]} />
       <InfoBanner />
     </div>
   );

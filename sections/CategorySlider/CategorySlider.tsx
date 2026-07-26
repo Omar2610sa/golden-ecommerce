@@ -38,7 +38,7 @@ export default function CategorySlider({ category }: { category: Category[] }) {
         <section className='container space-y-10 w-full'>
             {/* Title */}
 
-            <SectionTitle title="تسوق حسب الفئات " />
+            <SectionTitle title="تسوق حسب الفئات " hidden />
             {/* Categories */}
             <div className="gap-y-10 md:mb-4 md:pb-4 gap-8  grid md:grid-cols-6 grid-cols-4">
                 {category.map((item, index) => (

@@ -14,6 +14,7 @@ import Bell from "@/assets/icons/notification-bing.png"
 import discount from "@/assets/icons/discount-shape.png"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import LoginButton from "./LoginButton";
+import FadeIn from "@/components/Animations/Fadding";
 
 export default function Header() {
 
@@ -79,20 +80,22 @@ export default function Header() {
     ]
 
     return (
-        <header className="hidden md:flex flex-col shrink-0 bg-background">
+        <header className="sticky top-0 z-150 transition-transform duration-300 ease-in-out translate-y-0 bg-background">
             {/* Top Nav */}
             <div className="bg-secondary-foreground text-primary-foreground flex justify-between items-center py-2 px-10">
                 {/* Phone & Email */}
-                <div className="flex flex-col md:flex-row font-medium items-center gap-8 text-xs">
-                    <div className="flex items-center gap-2">
-                        <PhoneCall className="size-3.5" />
-                        اتصل بنا : 96124563222
+                <FadeIn direction="right"  >
+                    <div className="flex flex-col md:flex-row font-medium items-center gap-8 text-xs">
+                        <div className="flex items-center gap-2">
+                            <PhoneCall className="size-3.5" />
+                            اتصل بنا : 96124563222
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Mail className="size-3.5" />
+                            care@goldenbeautyhouse.com
+                        </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <Mail className="size-3.5" />
-                        care@goldenbeautyhouse.com
-                    </div>
-                </div>
+                </FadeIn>
                 <HeaderLinks />
             </div>
 
@@ -123,7 +126,7 @@ export default function Header() {
                                 <span className="absolute h-3 w-3 rounded-full bg-primary"></span>
                             </span> */}
                         </Link>
-                        <Link href="/" className="flex justify-center items-center relative size-7">
+                        <Link href="/favorites" className="flex justify-center items-center relative size-7">
                             <Image src={Heart} alt="Bell" className="size-6" />
                             {/* <span className="absolute -top-1 right-0">
                                 <span className="absolute h-3 w-3 rounded-full bg-primary opacity-75"></span>
@@ -146,7 +149,7 @@ export default function Header() {
                     <div className="flex justify-between items-center gap-10 text-[14px] font-bold">
                         {menuItems.map((item) => (
                             <DropdownMenu key={item.label} modal={false}>
-                                <DropdownMenuTrigger className="flex items-center gap-1 whitespace-nowrap hover:text-foreground transition-colors cursor-pointer">
+                                <DropdownMenuTrigger className="flex items-center gap-1 whitespace-nowrap hover:text-primary transition-colors cursor-pointer">
                                     {item.label === "عروض مميزة" ? (
                                         <div className="flex items-center gap-2">
                                             <Image src={discount} alt="discount" className="size-5 object-contain" />

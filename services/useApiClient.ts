@@ -59,7 +59,6 @@ export async function apiClient<T = unknown>(
                 "Accept": "application/json",
                 ...(token ? { Authorization: `Bearer ${token}` } : {}),
                 ...(guestToken ? { "Guest-Token": guestToken } : {}),
-                ...(headers ? { "Accept-Language": Language } : {}),
             },
             ...(body ? { body: isFormData ? body : JSON.stringify(body) } : {}),
         }
