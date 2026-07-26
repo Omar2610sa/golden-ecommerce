@@ -13,7 +13,7 @@ export default async function Home() {
   return (
     <div className="">
       <Hero slider={home?.sliders ?? []} />
-      <CategorySlider />
+      <CategorySlider category={home?.categories} />
       <ProductView title="وصل حديثًا" products={home?.recent_products ?? []} />
       <Banner banner={home?.banners[2]} />
       <ProductView title="الأكثر مبيعًا" products={home?.best_selling_products ?? []} />

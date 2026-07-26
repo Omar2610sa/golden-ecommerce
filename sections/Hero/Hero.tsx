@@ -46,7 +46,7 @@ export default function Hero({ slider, shopNowText = "تسوق الآن" }: { sl
                                     alt=""
                                     dir="rtl"
                                 />
-                                <div className="absolute inset-0 bg-black/60 z-30" />
+                                <div className="absolute inset-0 bg-black/0 z-30" />
 
                                 {/* Content */}
                                 <div className="relative container z-40 w-full  h-full flex flex-col justify-center items-end gap-8  text-white">

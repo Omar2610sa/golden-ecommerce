@@ -23,6 +23,7 @@ export interface Banner {
 }
 
 export interface Category {
+    id: number
     image: {
         url: string;
     };
@@ -157,4 +158,17 @@ export interface Product {
     reviews: ProductReview[];
     en: ProductLocalizedContent;
     ar: ProductLocalizedContent;
+}
+
+
+export interface Categories {
+    en: {
+        name: string
+        description: string
+    },
+    ar: {
+        name: string
+        description: string
+    }
+    products: ProductCard[]
 }
