@@ -1,0 +1,171 @@
+'use client'
+import * as React from 'react'
+import { cn } from '@/lib/utils'
+import {
+    type CarouselApi,
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from '@/components/ui/carousel'
+import Image from 'next/image'
+
+type ProductImage = {
+    id: number
+    url: string
+    alt?: string
+}
+
+type Props = {
+    image: {
+        id: number
+        url: string
+        alt?: string
+    }
+    images: ProductImage[]
+}
+
+const ProductImageCarousel = ({ image, images }: Props) => {
+    const [mainApi, setMainApi] = React.useState<CarouselApi>()
+    const [thumbApi, setThumbApi] = React.useState<CarouselApi>()
+    const [activeIndex, setActiveIndex] = React.useState(0)
+    const [loadedImages, setLoadedImages] = React.useState<Record<number, boolean>>({})
+    const [dir, setDir] = React.useState<'ltr' | 'rtl'>('ltr')
+    const [isMobile, setIsMobile] = React.useState(false)
+
+    React.useEffect(() => {
+        const htmlDir = (document.documentElement.dir || document.body.dir || 'ltr') as 'ltr' | 'rtl'
+        setDir(htmlDir)
+
+        const check = () => setIsMobile(window.innerWidth < 768)
+        check()
+        window.addEventListener('resize', check)
+        return () => window.removeEventListener('resize', check)
+    }, [])
+
+    const allImages = React.useMemo(
+        () => [{ id: image.id ?? 0, url: image.url, alt: image.alt }, ...images],
+        [image, images]
+    )
+
+    const onThumbClick = React.useCallback(
+        (index: number) => {
+            if (!mainApi) return
+            mainApi.scrollTo(index)
+        },
+        [mainApi]
+    )
+
+    const onSelect = React.useCallback(() => {
+        if (!mainApi || !thumbApi) return
+        const selected = mainApi.selectedScrollSnap()
+        setActiveIndex(selected)
+        thumbApi.scrollTo(selected)
+    }, [mainApi, thumbApi])
+
+    React.useEffect(() => {
+        if (!mainApi) return
+        onSelect()
+        mainApi.on('select', onSelect)
+        mainApi.on('reInit', onSelect)
+        return () => {
+            mainApi.off('select', onSelect)
+            mainApi.off('reInit', onSelect)
+        }
+    }, [mainApi, onSelect])
+
+    const handleImageLoad = (index: number) => {
+        setLoadedImages((prev) => ({ ...prev, [index]: true }))
+    }
+
+    return (
+        <div className={cn('flex   gap-3 w-full h-full', dir === 'rtl' ? 'flex-col md:flex-row-reverse' : 'flex-col md:flex-row')}>
+
+            {/* Main Image */}
+            <Carousel
+                setApi={setMainApi}
+                opts={{ loop: true, direction: dir, }}
+                className="flex-1  h-full"
+            >
+                {/* Main Image Content */}
+                <CarouselContent className="ml-0">
+                    {allImages.map((image, index) => (
+                        <CarouselItem key={image.id} className="h-[650px]  pl-0">
+                            <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gray-200">
+                                {!loadedImages[index] && (
+                                    <div className="absolute inset-0 animate-pulse  bg-gray-200" />
+                                )}
+                                <Image
+                                    src={image.url}
+                                    alt={image.alt ?? ''}
+                                    fill
+                                    className={cn(
+                                        'object-cover transition-opacity  duration-300',
+                                        loadedImages[index] ? 'opacity-100' : 'opacity-0'
+                                    )}
+                                    onLoad={() => handleImageLoad(index)}
+                                />
+                                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                                    {allImages.map((_, i) => (
+                                        <button
+                                            key={i}
+                                            onClick={() => onThumbClick(i)}
+                                            className={cn(
+                                                'w-2 h-2 rounded-full transition-all duration-200',
+                                                activeIndex === i
+                                                    ? 'bg-primary scale-125'
+                                                    : 'bg-white/50 hover:bg-white/75'
+                                            )}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+            </Carousel>
+
+            {/* Thumbnails */}
+            <Carousel
+                setApi={setThumbApi}
+                opts={{ align: 'start', dragFree: true }}
+                orientation={isMobile ? 'horizontal' : 'vertical'}
+                className={`${isMobile ? "w-[90%] " : "w-[80px] h-full "}`}
+            >
+                <CarouselContent className="-mt-2 h-40 md:h-[750px]">
+                    {allImages.map((image, index) => (
+                        <CarouselItem
+                            key={image.id}
+                            className="basis-auto pt-2 cursor-pointer"
+                            onClick={() => onThumbClick(index)}
+                        >
+                            <div
+                                className={cn(
+                                    'relative w-[80px] h-[128px] rounded-xl overflow-hidden border-2 transition-all duration-200 bg-gray-100',
+                                    activeIndex === index
+                                        ? 'border-primary opacity-100'
+                                        : 'border-transparent opacity-50 hover:opacity-75'
+                                )}
+                            >
+                                {!loadedImages[index] && (
+                                    <div className="absolute inset-0 animate-pulse bg-gray-200" />
+                                )}
+                                <Image
+                                    src={image.url}
+                                    alt={image.alt ?? ''}
+                                    fill
+                                    className={cn(
+                                        'object-cover transition-opacity duration-300',
+                                        loadedImages[index] ? 'opacity-100' : 'opacity-0'
+                                    )}
+                                />
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+            </Carousel>
+
+        </div>
+    )
+}
+
+export default ProductImageCarousel

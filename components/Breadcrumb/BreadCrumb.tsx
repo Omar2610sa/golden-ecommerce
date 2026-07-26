@@ -17,7 +17,7 @@ export function BreadCrumb({ secondLink }: { secondLink?: string; }) {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink className="text-sm text-gray-400 font-semibold" href="/">
+          <BreadcrumbLink className="text-lg text-gray-400 font-semibold" href="/">
             الرئيسية
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -30,7 +30,7 @@ export function BreadCrumb({ secondLink }: { secondLink?: string; }) {
               </BreadcrumbSeparator>
 
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-sm font-semibold">
+                <BreadcrumbPage className="text-lg font-semibold">
                   {secondLink}
                 </BreadcrumbPage>
               </BreadcrumbItem>

@@ -4,6 +4,7 @@ import security from "@/assets/icons/security-card.png"
 import verify from "@/assets/icons/verify.png"
 import support from "@/assets/icons/24-support.png"
 import Image from "next/image";
+import FadeIn from "../Animations/Fadding";
 
 const infoItems = [
     {
@@ -34,13 +35,15 @@ export default function InfoBanner() {
             <div className="container grid grid-cols-4 items-center justify-center ">
                 {
                     infoItems.map((item, index) => (
-                        <div key={index} className="flex flex-col items-center text-center gap-6">
-                            <Image src={item.icon} alt={item.title} className="size-10" />
-                            <div className="flex flex-col gap-2">
-                                <h3 className="font-bold text-xl">{item.title}</h3>
-                                <p className="text-gray-600">{item.description}</p>
+                        <FadeIn direction="down" key={index} delay={index * 0.3}>
+                            <div className="flex flex-col items-center text-center gap-6">
+                                <Image src={item.icon} alt={item.title} className="size-10" />
+                                <div className="flex flex-col gap-2">
+                                    <h3 className="font-bold text-xl">{item.title}</h3>
+                                    <p className="text-gray-600">{item.description}</p>
+                                </div>
                             </div>
-                        </div>
+                        </FadeIn>
                     ))
                 }
             </div>

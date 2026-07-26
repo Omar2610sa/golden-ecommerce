@@ -1,3 +1,4 @@
+import FadeIn from "@/components/Animations/Fadding";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import ShopCard from "@/components/ShopCard/ShopCard";
 import { ProductCard } from "@/interfaces/interfaces";
@@ -286,19 +287,23 @@ export const testProducts: ProductCard[] = [
 ]
 export default function ProductView({
     products,
-    title
+    title,
+    hidden
 }: {
     products: ProductCard[],
     title: string
+    hidden?: boolean
 }) {
     return (
         <section className="container flex flex-col gap-3 ">
             {/* Title */}
-            <SectionTitle title={title} />
+            <SectionTitle title={title} hidden={hidden} />
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 p-6">
-                {products.map((product) => (
-                    <ShopCard key={product.id} product={product} />
+                {products.map((product, index) => (
+                    <FadeIn key={product.id} direction="up" delay={index * 0.3}>
+                        <ShopCard product={product} />
+                    </FadeIn>
                 ))}
             </div>
         </section>
