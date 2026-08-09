@@ -49,6 +49,7 @@ export default function Hero({ slider, shopNowText = "تسوق الآن" }: { sl
 
                                 {/* Content */}
                                 <div className="relative container z-40 w-full  h-full flex flex-col justify-center items-end gap-8  text-white">
+                                    
                                     <div className="flex flex-col items-end gap-4 md:gap-6 w-full md:max-w-xl">
                                         <h1 className="font-bold text-3xl md:text-6xl   leading-relaxed  text-right">
                                             اكتشفي جمالك بلمسة ميك أب احترافية

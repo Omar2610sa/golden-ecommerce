@@ -3,5 +3,98 @@
         "faq": "FAQ",
         "contactUs": "Contact Us",
         "support": "Technical Support"
+    },
+    "wishlist": {
+        "title": "Favourite"
+    },
+    "NoFav": {
+        "title": "No Products in Favorites",
+        "description": "You can add your favorite products to easily find them here later.",
+        "button": "Start Shopping"
+    },
+    "Breadcrumb": {
+        "main": "Home"
+    },
+    "header": {
+        "categories": {
+            "skinCare": {
+                "label": "Skin Care",
+                "items": [
+                    "Face Wash",
+                    "Toner",
+                    "Serum",
+                    "Masks",
+                    "Moisturizer",
+                    "Shampoo",
+                    "Exfoliators",
+                    "Sunscreen"
+                ]
+            },
+            "personalCare": {
+                "label": "Personal Care",
+                "items": [
+                    "Body Wash",
+                    "Hands & Feet Care"
+                ]
+            },
+            "hairCare": {
+                "label": "Hair Care",
+                "items": [
+                    "Shampoo",
+                    "Conditioner",
+                    "Hair Mask",
+                    "Hair Oils",
+                    "Hair Serum"
+                ]
+            },
+            "makeupAndBeauty": {
+                "label": "Makeup & Beauty",
+                "items": [
+                    "Shampoo",
+                    "Shampoo",
+                    "Shampoo",
+                    "Shampoo"
+                ]
+            },
+            "beautyTools": {
+                "label": "Beauty Tools",
+                "items": [
+                    "Shampoo",
+                    "Shampoo",
+                    "Shampoo",
+                    "Shampoo"
+                ]
+            },
+            "specialOffers": {
+                "label": "Special Offers",
+                "items": [
+                    "Shampoo",
+                    "Shampoo",
+                    "Shampoo",
+                    "Shampoo"
+                ]
+            }
+        },
+        "callUs": "Call Us",
+        "placeholder": "Search for a product",
+        "login": "Login / Create Account"
+    },
+    "infoItems": {
+        "authenticProducts": {
+            "title": "Authentic Products",
+            "description": "We guarantee authentic, high-quality products"
+        },
+        "support247": {
+            "title": "24/7 Support",
+            "description": "Customer service available around the clock"
+        },
+        "dailyCare": {
+            "title": "Complete Daily Care",
+            "description": "Everything you need for your daily beauty routine"
+        },
+        "securePayment": {
+            "title": "Secure Payment",
+            "description": "100% safe and guaranteed payment experience"
+        }
     }
 }

@@ -20,6 +20,7 @@ export interface Banner {
     image: {
         url: string
     }
+    description: string
 }
 
 export interface Category {
@@ -171,4 +172,8 @@ export interface Categories {
         description: string
     }
     products: ProductCard[]
+}
+
+export interface WishlistData {
+    wishlist: ProductCard[]
 }

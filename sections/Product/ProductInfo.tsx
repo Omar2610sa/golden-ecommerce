@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import tabby from '@/assets/icons/tabby.png'
 import Tamara from '@/assets/icons/tamara.png'
 import ColorSelector from "@/components/ColorSelector/ColorSelector";
+import { useLocalizedField } from "@/utils/useLocalizedField";
 
 
 export default function ProductInfo({ product }: { product: Product }) {
@@ -22,6 +23,8 @@ export default function ProductInfo({ product }: { product: Product }) {
         (v) => v.id === selectedVariation
     );
 
+    const localizedField = useLocalizedField();
+
     return (
         <div className="grid md:grid-cols-2 gap-8 items-start">
             <ProductImageCarousel
@@ -33,7 +36,7 @@ export default function ProductInfo({ product }: { product: Product }) {
 
                 <div className="flex justify-between items-center">
                     <h2 className="text-2xl font-semibold leading-tight">
-                        {product.ar.name}
+                        {localizedField(product, 'name')}
                     </h2>
                     <FaShareSquare className="size-7 text-primary" />
                 </div>

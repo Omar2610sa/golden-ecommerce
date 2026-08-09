@@ -18,7 +18,7 @@ export default function Login() {
     const activeTab = searchParams.get("tab") === "register" ? "register" : "login";
 
     const handleTabChange = (value: string) => {
-        router.push(`/login?tab=${value}`, { scroll: false });
+        router.push(`/auth?tab=${value}`, { scroll: false });
     };
     return (
         <Card className="w-full max-w-lg mx-auto bg-white rounded-2xl shadow-md p-6 flex flex-col gap-6">

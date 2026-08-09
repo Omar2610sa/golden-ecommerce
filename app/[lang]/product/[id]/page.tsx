@@ -4,6 +4,7 @@ import { Product, ProductCard } from "@/interfaces/interfaces";
 import ProductInfo from "@/sections/Product/ProductInfo";
 import ProductView from "@/sections/ProductView/ProductView";
 import { serverApi } from "@/services/serverApi";
+import { localizedField } from "@/utils/localizedField";
 
 type Props = {
     params: Promise<{
@@ -16,10 +17,12 @@ export default async function page({ params }: Props) {
     const { data: product } = await serverApi<{ data: ProductCard }>(
         `products/${id}`
     );
+        const productName = await localizedField(product, 'name');
+    
     return (
         <section>
             <div className="container flex flex-col gap-10 bg-background" >
-                <BreadCrumb secondLink={product.ar.name} />
+                <BreadCrumb secondLink={productName} />
                 <ProductInfo product={product as unknown as Product} />
                 <ProductView
                     title='الأفضل استخدامه مع'

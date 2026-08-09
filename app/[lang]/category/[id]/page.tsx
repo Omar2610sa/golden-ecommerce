@@ -16,7 +16,7 @@ type Props = {
 export default async function page({ params }: Props) {
 
     const { id } = await params;
-    const { data: category } = await serverApi<{ data: Categories }>(
+const { data: category } = await serverApi<{ data: Categories }>(
         `categories/${id}`
     );
 

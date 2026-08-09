@@ -64,7 +64,7 @@ export default function ProductView({
 
             <div
                 ref={scrollRef}
-                className="flex gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory p-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                className="flex gap-3 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory p-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
                 {products.map((product, index) => (
                     <FadeIn
