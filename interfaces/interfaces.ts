@@ -6,7 +6,7 @@ export interface HomePageProps {
 
 export interface Slider {
     id: number
-    name: string
+    title: string
     desc: string
     image: {
         url: string
@@ -69,10 +69,12 @@ export interface ProductCard {
     price: number;
     discount_percentage: number;
     price_after_discount: number;
+    lowest_price: number;
     average_rate: number;
     reviews_count: number;
     image: ProductImage;
     is_wishlist: boolean;
+    is_active: boolean;
     lowest_price_variation: ProductLowestPriceVariation;
     brand: string | null;
     category: ProductCategory;
@@ -176,4 +178,5 @@ export interface Categories {
 
 export interface WishlistData {
     wishlist: ProductCard[]
+    product : ProductCard[]
 }

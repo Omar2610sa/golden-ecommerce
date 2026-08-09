@@ -41,16 +41,16 @@ export async function apiClient<T = unknown>(
     try {
         token = Cookies.get(auth_Token)
         Language = Cookies.get(Language_Token)
-        
+
         guestToken = ensureGuestTokenClient()
     } catch {
         token = undefined
         guestToken = uuidv4()
     }
 
-    const isFormData = body instanceof FormData  
+    const isFormData = body instanceof FormData
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE}/api/client/${endpoint}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/client/${endpoint}`,
         {
             method,
             cache: "no-store",
@@ -59,6 +59,7 @@ export async function apiClient<T = unknown>(
                 "Accept": "application/json",
                 ...(token ? { Authorization: `Bearer ${token}` } : {}),
                 ...(guestToken ? { "Guest-Token": guestToken } : {}),
+                ...(headers ? { "Accept-Language": Language } : {}),
             },
             ...(body ? { body: isFormData ? body : JSON.stringify(body) } : {}),
         }

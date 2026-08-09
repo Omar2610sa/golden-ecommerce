@@ -17,7 +17,7 @@ export default async function Home() {
       <CategorySlider category={home?.categories} />
       <FlashOffers banners={home?.banners} />
       <ProductView title="وصل حديثًا" products={home?.recent_products ?? []} />
-      <Banner banner={home?.banners[2]} />
+      {/* <Banner banner={home?.banners[2]} /> */}
       <ProductView title="الأكثر مبيعًا" products={home?.best_selling_products ?? []} />
       <Banner banner={{ id: 0, image: { url: banner.src } }} />
       <FlashProducts products={home?.flash_sale_products ?? []} title="عروض مميزة" hidden />

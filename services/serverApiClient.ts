@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid"
 
 
 
-export async function serverApi<T = unknown>(
+export async function serverApiClient<T = unknown>(
     endpoint: string,
     options: Options = {}
 ): Promise<T> {
@@ -31,7 +31,7 @@ export async function serverApi<T = unknown>(
     }
 
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/guest/${endpoint}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/client/${endpoint}`,
         {
             method,
             headers: {

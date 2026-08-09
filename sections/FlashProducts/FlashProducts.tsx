@@ -28,11 +28,11 @@ export default function FlashProducts({
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2 py-6">
                 <FadeIn direction="left">
 
-                    <div className="relative mx-4 h-[360px] col-span-2 md:col-span-1 rounded-2xl overflow-hidden">
+                    <div className="relative mx-4 h-[360px] col-span-2 md:col-span-1 rounded-2xl overflow-hidden group">
                         <Image
                             src={flashImage}
                             alt="Flash Sale"
-                            className="w-full relative h-full object-cover"
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                         <CardContent className="absolute inset-0 flex flex-col gap-5 items-center justify-center text-white z-10">
                             <p className="text-xl md:text-5xl leading-tight font-bold text-center">

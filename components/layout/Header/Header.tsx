@@ -13,12 +13,13 @@ import FadeIn from "@/components/Animations/Fadding";
 import { getTranslations } from "next-intl/server";
 import { Categories } from "@/interfaces/interfaces";
 import { serverApi } from "@/services/serverApi";
+import ProfileButton from "./ProfileButton";
 
 export default async function Header() {
-
+    const token = (await cookies()).get('token_golden')?.value ?? null
     const t = await getTranslations('header');
-      const cookieStore = await cookies()
-      const isRtl = cookieStore.get("NEXT_LOCALE")?.value == 'ar'
+    const cookieStore = await cookies()
+    const isRtl = cookieStore.get("NEXT_LOCALE")?.value == 'ar'
 
     const menuItems = [
         { label: t('categories.skinCare.label'), items: t.raw('categories.skinCare.items') as string[] },
@@ -32,7 +33,7 @@ export default async function Header() {
     const { data: category } = await serverApi<{ data: Categories }>(
         `categories`
     );
-    
+
 
     return (
         <header className="hidden md:flex flex-col shrink-0 bg-background">
@@ -92,9 +93,21 @@ export default async function Header() {
                             <MainButton text="سجل دخول" size={"xl"} />
                         </Link>
                         <MainButton text="إنشاء حساب جديد" size={"xl"} /> */}
-                        <Link href="/auth">
-                            <LoginButton title={t('login')} />
-                        </Link>
+
+                        {
+                            !token && (
+                                <Link href="/auth">
+                                    <LoginButton title={t('login')} />
+                                </Link>
+                            )
+                        }
+
+
+                        {
+                            token && (
+                                    <ProfileButton name='عمر معتز' />
+                            )
+                        }
                     </div>
 
                 </div>

@@ -25,13 +25,13 @@ export default async function HeaderLinks() {
                 <BreadcrumbSeparator>|</BreadcrumbSeparator>
                 <FadeIn direction="left"  >
                     <BreadcrumbItem>
-                        <BreadcrumbLink className="text-primary-foreground  font-semibold hover:text-primary-foreground/70 cursor-pointer">{t("faq")}</BreadcrumbLink>
+                        <BreadcrumbLink className="text-primary-foreground  font-semibold hover:text-primary cursor-pointer">{t("faq")}</BreadcrumbLink>
                     </BreadcrumbItem>
                 </FadeIn>
                 <BreadcrumbSeparator>|</BreadcrumbSeparator>
                 <FadeIn direction="left"  >
                 <BreadcrumbItem>
-                    <Link href="/privacy" className="text-primary-foreground font-semibold hover:text-primary-foreground/70 cursor-pointer">{t("contactUs")}</Link>
+                    <Link href="/privacy" className="text-primary-foreground font-semibold hover:text-primary cursor-pointer">{t("contactUs")}</Link>
                 </BreadcrumbItem>
                 </FadeIn>
             </BreadcrumbList>

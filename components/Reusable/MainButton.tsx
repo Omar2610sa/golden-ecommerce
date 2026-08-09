@@ -8,7 +8,7 @@ interface Button { text: string; variant?: ButtonVariant; size?: ButtonSize, px?
 
 export default function MainButton({ text, variant, size, px, py }: Button) {
   return (
-    <Button size={size} variant={variant ?? "default"} className={` rounded-3xl w-fit   ${px ?? "px-6"} ${py ?? "py-4"} shadow-md font-bold `}>
+    <Button size={size} variant={variant ?? "default"} className={` rounded-3xl w-fit   ${px ?? "px-6"} ${py ?? "py-4"} shadow-md font-bold text-lg `}>
       {text}
     </Button>
   );
