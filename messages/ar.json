@@ -1,4 +1,10 @@
 {
+  "home": {
+    "recentProducts": "وصل حديثًا",
+    "bestSelling": "الأكثر مبيعًا",
+    "flashOffers": "عروض مميزة",
+    "categories": "تسوق حسب الأقسام"
+  },
   "HeaderLinks": {
     "faq": "الأسئلة الشائعة",
     "contactUs": "تواصل معنا",
@@ -96,5 +102,8 @@
       "title": "دفع آمن",
       "description": "تجربة دفع آمنة ومضمونة بنسبة 100%"
     }
+  },
+  "btns" : {
+    "Shopbtn" : "تسوق الان"
   }
 }

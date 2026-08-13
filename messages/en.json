@@ -1,4 +1,10 @@
 {
+    "home": {
+        "recentProducts": "New Arrivals",
+        "bestSelling": "Best Sellers",
+        "flashOffers": "Flash Offers",
+        "categories": "Shop by Categories"
+    },
     "HeaderLinks": {
         "faq": "FAQ",
         "contactUs": "Contact Us",
@@ -96,5 +102,8 @@
             "title": "Secure Payment",
             "description": "100% safe and guaranteed payment experience"
         }
+    },
+    "btns": {
+        "Shopbtn": "Shop Now"
     }
 }

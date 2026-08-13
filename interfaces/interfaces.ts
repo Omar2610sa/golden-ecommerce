@@ -21,6 +21,10 @@ export interface Banner {
         url: string
     }
     description: string
+    category: {
+        id: number
+        name: string
+    }
 }
 
 export interface Category {

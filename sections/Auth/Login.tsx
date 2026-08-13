@@ -73,8 +73,8 @@ export default function Login() {
 
                     Cookies.set("token_golden", token, { path: "/" });
                     SuccessAlert("تم تسجيل الدخول بنجاح", "أهلاً بك في Golden Beauty House، استمتعي بتجربة تسوق مميزة لاكتشاف كل ما يخص الجمال والعناية.");
-                    router.refresh();
                     router.replace('/');
+                    router.refresh();
                 } else {
                     ErrorAlert(response?.message ?? "حدثت مشكلة");
                 }

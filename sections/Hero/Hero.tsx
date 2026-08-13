@@ -11,11 +11,16 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import MainButton from "@/components/Reusable/MainButton";
 import Link from "next/link";
+import Cookies from "js-cookie"
+import { useTranslations } from "next-intl";
 
-export default function Hero({ slider, shopNowText = "تسوق الآن" }: { slider: Slider[], shopNowText?: string }) {
+export default function Hero({ slider, shopNowText }: { slider: Slider[], shopNowText?: string }) {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
+    const t = useTranslations('btns')
 
+        const isRtl = Cookies.get('NEXT_LOCALE') == "ar"
+console.log("isRtl", isRtl)
     useEffect(() => {
         if (!api) return;
         // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -47,18 +52,18 @@ export default function Hero({ slider, shopNowText = "تسوق الآن" }: { sl
                             <div className="absolute inset-0 bg-black/0 z-30" />
 
                             {/* Content */}
-                            <div className="relative container z-40 w-full  h-full flex flex-col justify-center items-end gap-8  text-white">
+                            <div className={`relative container z-40 w-full  h-full flex flex-col justify-center ${isRtl ? "items-end" : "items-start"} gap-8  text-white`}>
 
-                                <div className="flex flex-col items-end gap-4 md:gap-6 w-full md:max-w-xl">
-                                    <h1 className="font-bold text-3xl md:text-6xl   leading-relaxed  text-right">
+                                <div className={`flex flex-col ${isRtl ? "items-end" : "items-start"} gap-4 md:gap-6 w-full md:max-w-xl`}>
+                                    <h1 className={`font-bold text-3xl md:text-5xl  leading-relaxed  ${isRtl ? "text-end" : "text-start"}`}>
                                         {slider?.title}
                                     </h1>
-                                    <p className=" md:text-2xl font-medium  text-end ">
+                                    <p className=" md:text-2xl font-medium   ">
                                         ألوان تناسب كل إطلالة وتبرز جمالك الطبيعي
                                     </p>
                                 </div>
-                                <Link href={`/slider/${slider.id}`}>
-                                    <MainButton variant="third" text={shopNowText} px="px-20" py="py-5" />
+                                <Link href={`/category/${slider.id}`}>
+                                    <MainButton variant="third" text={t('Shopbtn')} px="px-10" py="py-5" />
                                 </Link>
                             </div>
                         </CarouselItem>

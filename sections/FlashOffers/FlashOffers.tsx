@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Banner } from "@/interfaces/interfaces";
 import FadeIn from "@/components/Animations/Fadding";
+import { getTranslations } from "next-intl/server";
 
-export default function FlashOffers({ banners }: { banners: Banner[] }) {
+export default async function FlashOffers({ banners }: { banners: Banner[] }) {
+    const t = await getTranslations('btns')
     return (
         <section className="relative overflow-hidden">
             <div className="container relative z-10">
@@ -24,10 +26,12 @@ export default function FlashOffers({ banners }: { banners: Banner[] }) {
                                         {banner.description}
                                     </p>
                                     <Link
-                                        href={`/products?category=`}
+                                        href={`/category/${banner.category.id}`}
                                         className="inline-block bg-[#111111] hover:bg-[#f8a826] text-white px-5 py-2 md:px-8 md:py-3.5 rounded-full text-xs md:text-sm font-bold transition-all duration-300 hover:-translate-y-1"
                                     >
-                                        تسوق الان
+                                        {
+                                            t('Shopbtn')
+                                        }
                                     </Link>
                                 </div>
 

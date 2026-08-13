@@ -6,7 +6,7 @@ import FadeIn from "@/components/Animations/Fadding";
 import { Category } from "@/interfaces/interfaces";
 import Link from "next/link";
 
-export default function CategorySlider({ category }: { category: Category[] }) {
+export default function CategorySlider({ category , title }: { category: Category[]; title: string }) {
 
     const sliders = [
         {
@@ -38,7 +38,7 @@ export default function CategorySlider({ category }: { category: Category[] }) {
         <section className='container space-y-10 w-full'>
             {/* Title */}
 
-            <SectionTitle title="تسوق حسب الفئات " hidden />
+            <SectionTitle title={title} hidden />
             {/* Categories */}
             <div className="gap-y-10 md:mb-4 md:pb-4 gap-8  grid md:grid-cols-6 grid-cols-4">
                 {category.map((item, index) => (

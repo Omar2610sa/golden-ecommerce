@@ -89,10 +89,7 @@ export default async function Header() {
                                 <span className="absolute h-3 w-3 rounded-full bg-primary"></span>
                             </span> */}
                         </Link>
-                        {/* <Link href="/login">
-                            <MainButton text="سجل دخول" size={"xl"} />
-                        </Link>
-                        <MainButton text="إنشاء حساب جديد" size={"xl"} /> */}
+
 
                         {
                             !token && (
@@ -105,7 +102,7 @@ export default async function Header() {
 
                         {
                             token && (
-                                    <ProfileButton name='عمر معتز' />
+                                <ProfileButton name='عمر معتز' />
                             )
                         }
                     </div>
